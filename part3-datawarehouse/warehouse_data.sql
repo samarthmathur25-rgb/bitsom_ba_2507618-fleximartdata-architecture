@@ -1,0 +1,115 @@
+USE fleximart_dw;
+
+-- 1. Populate dim_date (Jan 1 to Jan 30, 2024)
+INSERT INTO dim_date (date_key, full_date, day_of_week, day_of_month, month, month_name, quarter, year, is_weekend) VALUES
+(20240101, '2024-01-01', 'Monday', 1, 1, 'January', 'Q1', 2024, FALSE),
+(20240102, '2024-01-02', 'Tuesday', 2, 1, 'January', 'Q1', 2024, FALSE),
+(20240103, '2024-01-03', 'Wednesday', 3, 1, 'January', 'Q1', 2024, FALSE),
+(20240104, '2024-01-04', 'Thursday', 4, 1, 'January', 'Q1', 2024, FALSE),
+(20240105, '2024-01-05', 'Friday', 5, 1, 'January', 'Q1', 2024, FALSE),
+(20240106, '2024-01-06', 'Saturday', 6, 1, 'January', 'Q1', 2024, TRUE),
+(20240107, '2024-01-07', 'Sunday', 7, 1, 'January', 'Q1', 2024, TRUE),
+(20240108, '2024-01-08', 'Monday', 8, 1, 'January', 'Q1', 2024, FALSE),
+(20240109, '2024-01-09', 'Tuesday', 9, 1, 'January', 'Q1', 2024, FALSE),
+(20240110, '2024-01-10', 'Wednesday', 10, 1, 'January', 'Q1', 2024, FALSE),
+(20240111, '2024-01-11', 'Thursday', 11, 1, 'January', 'Q1', 2024, FALSE),
+(20240112, '2024-01-12', 'Friday', 12, 1, 'January', 'Q1', 2024, FALSE),
+(20240113, '2024-01-13', 'Saturday', 13, 1, 'January', 'Q1', 2024, TRUE),
+(20240114, '2024-01-14', 'Sunday', 14, 1, 'January', 'Q1', 2024, TRUE),
+(20240115, '2024-01-15', 'Monday', 15, 1, 'January', 'Q1', 2024, FALSE),
+(20240116, '2024-01-16', 'Tuesday', 16, 1, 'January', 'Q1', 2024, FALSE),
+(20240117, '2024-01-17', 'Wednesday', 17, 1, 'January', 'Q1', 2024, FALSE),
+(20240118, '2024-01-18', 'Thursday', 18, 1, 'January', 'Q1', 2024, FALSE),
+(20240119, '2024-01-19', 'Friday', 19, 1, 'January', 'Q1', 2024, FALSE),
+(20240120, '2024-01-20', 'Saturday', 20, 1, 'January', 'Q1', 2024, TRUE),
+(20240121, '2024-01-21', 'Sunday', 21, 1, 'January', 'Q1', 2024, TRUE),
+(20240122, '2024-01-22', 'Monday', 22, 1, 'January', 'Q1', 2024, FALSE),
+(20240123, '2024-01-23', 'Tuesday', 23, 1, 'January', 'Q1', 2024, FALSE),
+(20240124, '2024-01-24', 'Wednesday', 24, 1, 'January', 'Q1', 2024, FALSE),
+(20240125, '2024-01-25', 'Thursday', 25, 1, 'January', 'Q1', 2024, FALSE),
+(20240126, '2024-01-26', 'Friday', 26, 1, 'January', 'Q1', 2024, FALSE),
+(20240127, '2024-01-27', 'Saturday', 27, 1, 'January', 'Q1', 2024, TRUE),
+(20240128, '2024-01-28', 'Sunday', 28, 1, 'January', 'Q1', 2024, TRUE),
+(20240129, '2024-01-29', 'Monday', 29, 1, 'January', 'Q1', 2024, FALSE),
+(20240130, '2024-01-30', 'Tuesday', 30, 1, 'January', 'Q1', 2024, FALSE);
+
+-- 2. Populate dim_product (15 products, 3 categories)
+INSERT INTO dim_product (product_id, product_name, category, subcategory, unit_price) VALUES
+('E-LAP-01', 'HighEnd Gaming Laptop', 'Electronics', 'Computers', 85000.00),
+('E-PHN-02', 'Smartphone Pro', 'Electronics', 'Mobile', 65000.00),
+('E-HD-03', 'Wireless Headphones', 'Electronics', 'Accessories', 4500.00),
+('E-TAB-04', 'Graphing Tablet', 'Electronics', 'Computers', 25000.00),
+('E-MN-05', '4K Monitor', 'Electronics', 'Accessories', 32000.00),
+('H-SF-01', 'Ergonomic Office Chair', 'Home & Living', 'Furniture', 12000.00),
+('H-LP-02', 'LED Floor Lamp', 'Home & Living', 'Lighting', 3500.00),
+('H-TB-03', 'Dining Table 4-Seater', 'Home & Living', 'Furniture', 45000.00),
+('H-CK-04', 'Air Fryer', 'Home & Living', 'Kitchen', 8500.00),
+('H-BT-05', 'Memory Foam Mattress', 'Home & Living', 'Bedroom', 22000.00),
+('G-SN-01', 'Organic Almonds 1kg', 'Grocery', 'Snacks', 950.00),
+('G-BV-02', 'Premium Coffee Beans', 'Grocery', 'Beverages', 1200.00),
+('G-OL-03', 'Extra Virgin Olive Oil', 'Grocery', 'Cooking Oil', 1800.00),
+('G-RC-04', 'Basmati Rice 5kg', 'Grocery', 'Grains', 1100.00),
+('G-SP-05', 'Exotic Spice Gift Box', 'Grocery', 'Spices', 2500.00);
+
+-- 3. Populate dim_customer (12 customers, 4 cities)
+INSERT INTO dim_customer (customer_id, customer_name, city, state, customer_segment) VALUES
+('C001', 'Amit Sharma', 'Mumbai', 'Maharashtra', 'Premium'),
+('C002', 'Priya Singh', 'Mumbai', 'Maharashtra', 'Individual'),
+('C003', 'Rahul Verma', 'Bangalore', 'Karnataka', 'Corporate'),
+('C004', 'Sneha Reddy', 'Bangalore', 'Karnataka', 'Individual'),
+('C005', 'Vikram Das', 'Delhi', 'Delhi', 'Premium'),
+('C006', 'Anjali Gupta', 'Delhi', 'Delhi', 'Individual'),
+('C007', 'Karthik Raja', 'Chennai', 'Tamil Nadu', 'Corporate'),
+('C008', 'Lakshmi Nair', 'Chennai', 'Tamil Nadu', 'Premium'),
+('C009', 'Suresh Kumar', 'Mumbai', 'Maharashtra', 'Individual'),
+('C010', 'Meena Kumari', 'Bangalore', 'Karnataka', 'Individual'),
+('C011', 'Rohan Mehra', 'Delhi', 'Delhi', 'Corporate'),
+('C012', 'Pooja Hegde', 'Chennai', 'Tamil Nadu', 'Individual');
+
+-- 4. Populate fact_sales (40 transactions)
+-- Logic: Weekends (Saturdays/Sundays) have higher volumes and slightly higher unit sales.
+INSERT INTO fact_sales (date_key, product_key, customer_key, quantity_sold, unit_price, discount_amount, total_amount) VALUES
+(20240101, 11, 1, 2, 950.00, 0, 1900.00),
+(20240101, 3, 5, 1, 4500.00, 500.00, 4000.00),
+(20240102, 14, 2, 5, 1100.00, 100.00, 5400.00),
+(20240103, 1, 3, 1, 85000.00, 2000.00, 83000.00),
+(20240105, 6, 8, 1, 12000.00, 1200.00, 10800.00),
+-- Weekend Peak (Jan 6-7)
+(20240106, 2, 10, 1, 65000.00, 0, 65000.00),
+(20240106, 12, 12, 3, 1200.00, 0, 3600.00),
+(20240106, 4, 4, 2, 25000.00, 2000.00, 48000.00),
+(20240107, 15, 7, 4, 2500.00, 500.00, 9500.00),
+(20240107, 9, 11, 1, 8500.00, 0, 8500.00),
+(20240107, 3, 1, 2, 4500.00, 450.00, 8550.00),
+(20240108, 13, 9, 1, 1800.00, 0, 1800.00),
+(20240110, 5, 6, 1, 32000.00, 1000.00, 31000.00),
+(20240112, 11, 2, 10, 950.00, 950.00, 8550.00),
+-- Weekend Peak (Jan 13-14)
+(20240113, 8, 3, 1, 45000.00, 5000.00, 40000.00),
+(20240113, 2, 8, 1, 65000.00, 0, 65000.00),
+(20240114, 10, 5, 1, 22000.00, 2000.00, 20000.00),
+(20240114, 7, 12, 2, 3500.00, 0, 7000.00),
+(20240115, 14, 4, 2, 1100.00, 0, 2200.00),
+(20240117, 1, 7, 1, 85000.00, 5000.00, 80000.00),
+(20240119, 13, 1, 2, 1800.00, 180.00, 3420.00),
+-- Weekend Peak (Jan 20-21)
+(20240120, 4, 11, 1, 25000.00, 0, 25000.00),
+(20240120, 15, 10, 2, 2500.00, 250.00, 4750.00),
+(20240120, 6, 2, 2, 12000.00, 2400.00, 21600.00),
+(20240121, 2, 9, 1, 65000.00, 3000.00, 62000.00),
+(20240121, 12, 5, 5, 1200.00, 0, 6000.00),
+(20240121, 9, 8, 1, 8500.00, 500.00, 8000.00),
+(20240123, 11, 3, 4, 950.00, 0, 3800.00),
+(20240125, 3, 12, 1, 4500.00, 0, 4500.00),
+(20240126, 5, 4, 1, 32000.00, 2000.00, 30000.00),
+-- Weekend Peak (Jan 27-28)
+(20240127, 8, 1, 1, 45000.00, 0, 45000.00),
+(20240127, 1, 6, 1, 85000.00, 10000.00, 75000.00),
+(20240127, 14, 10, 10, 1100.00, 1100.00, 9900.00),
+(20240128, 10, 11, 1, 22000.00, 1000.00, 21000.00),
+(20240128, 7, 3, 3, 3500.00, 500.00, 10000.00),
+(20240128, 2, 7, 1, 65000.00, 0, 65000.00),
+(20240129, 15, 2, 1, 2500.00, 0, 2500.00),
+(20240129, 12, 9, 2, 1200.00, 0, 2400.00),
+(20240130, 13, 8, 2, 1800.00, 200.00, 3400.00),
+(20240130, 6, 5, 1, 12000.00, 1000.00, 11000.00);
