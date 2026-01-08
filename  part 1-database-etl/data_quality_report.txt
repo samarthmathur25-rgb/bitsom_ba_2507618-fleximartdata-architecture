@@ -1,0 +1,7 @@
+ETL DATA QUALITY REPORT
+========================
+Customers: Processed 26, Duplicates Removed 1, Missing Handled 0
+Products: Processed 20, Duplicates Removed 0, Missing Handled 4
+Sales: Processed 41, Duplicates Removed 1, Dropped (Missing IDs) 6
+Database Load Status: Failed: (mysql.connector.errors.ProgrammingError) 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+(Background on this error at: https://sqlalche.me/e/20/f405)
